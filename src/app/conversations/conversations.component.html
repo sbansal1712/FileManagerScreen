@@ -1,0 +1,80 @@
+<div class="conversation">
+<span>{{conversationTitle}}</span>
+
+<span> by {{conversation ? conversation[0].username : ''}}</span>
+<span *ngIf="createdOn">
+<span style="color: #cccccc; margin-left: 2%;">{{createdOn | date: "dd-MM-yy, HH:mm:ss"}}</span>
+</span>
+<form [formGroup]="CommentForm">
+
+    <textarea
+        class="new-comment"
+        placeholder="Write Your Comment here.."
+        formControlName="CommentText">
+
+    </textarea>
+
+    <button mat-stroked-button type="submit" (click)="addComment()">Add Comment</button>
+</form>
+
+<form [formGroup]="ReplyForm">
+    <div class="col-md-9" style="margin-top:5%; " *ngFor="let response of response; let i = index">
+
+        <mat-label style="color: #333333;">{{response.username}}</mat-label>
+        <mat-label style="color: #cccccc; margin-left: 2%;">{{response.createdOn | date: "dd-MM-yy, HH:mm:ss"}}
+        </mat-label>
+         
+        <button mat-stroked-button *ngIf="LoggedInUser == response.username && !response.editReply" type="submit"
+            (click)="activateEditResponse(i)">Edit</button>
+            <button *ngIf="LoggedInUser == response.username && response.editReply" type="submit"
+            (click)="editResponse(i)">Submit</button>
+        <!-- <textarea  [disabled]="username != response.username" style="width:100%">
+     {{response.comment}} 
+  
+    </textarea> -->
+        <textarea class="existing-comment" formControlName="ReplyText" [value]="response.comment" *ngIf="response.editReply">
+
+
+    </textarea>
+        <textarea disabled *ngIf="!response.editReply" style="width:100%">
+        {{response.comment}}
+           
+    </textarea>
+   
+        <div class="col-md-8" style="margin-top:1%; margin-left: 2% ; "
+            *ngFor="let replies of response.Replies; let j = index">
+            <mat-label>{{replies.username}}</mat-label>
+            <mat-label style="color: #cccccc; margin-left: 2%;">{{replies.createdOn | date: "dd-MM-yy, HH:mm:ss"}}
+            </mat-label>
+            <button mat-stroked-button style="margin-left:2%;" *ngIf="LoggedInUser == replies.username && !replies.editReply" type="submit"
+            (click)="activateEditReply(i,j)">Edit</button>
+        <button mat-stroked-button style="margin-left:2%;" *ngIf="LoggedInUser == replies.username && replies.editReply" type="submit"
+            (click)="editReply(i,j)">Submit</button>
+            <textarea class="existing-reply" formControlName="ReplyText" [value]="replies.comment" *ngIf="replies.editReply">
+
+
+           </textarea>
+            <textarea disabled *ngIf="!replies.editReply" style="width:100%">
+         {{replies.comment}}
+            
+        </textarea>
+           
+
+        </div>
+
+       
+        
+
+        <div class="col-md-8" style="margin-top:2%; margin-left: 2% ; ">
+
+        <textarea style="width:100%" *ngIf="response.activeReply" formControlName="ReplyText"></textarea>
+        <button mat-stroked-button style="background-color: green; color: aliceblue;" *ngIf="!response.activeReply" type="submit" (click)="activeReply(i)">Reply</button>
+        <button mat-stroked-button  *ngIf="response.activeReply" type="submit" (click)="reply(i)">Submit</button>
+       
+    </div>
+        
+
+
+    </div>
+</form>
+</div>
