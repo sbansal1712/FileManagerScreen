@@ -2,9 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-// import { MatCardModule } from "@angular/material/card";
-// import { MatFormFieldModule } from "@angular/material/form-field";
-// import { MatInputModule } from "@angular/material/input";
+
 import {
   OwlDateTimeModule,
   OwlNativeDateTimeModule,
@@ -12,20 +10,19 @@ import {
 } from "ng-pick-datetime";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { NavComponent } from "./nav/nav.component";
-import { HomeComponent } from "./home/home.component";
+
 
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { RegisterComponent } from "./register/register.component";
+
 
 import { AppMaterialModule } from './material-module';
 
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material/daterangepicker.module';
 
-import { ConversationsComponent } from './conversations/conversations.component';
 
-import { NewConversationDialogComponent } from './new-conversation-dialog/new-conversation-dialog.component';
+
+
 
 import {FileManagerModule} from 'ng6-file-man';
 
@@ -47,24 +44,9 @@ export const MY_NATIVE_FORMATS = {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavComponent,
-    HomeComponent,
-   
-
-    RegisterComponent,
-
-    ConversationsComponent,
-
-
-
-    NewConversationDialogComponent,
-
- 
-
-  
+    AppComponent
   ],
-  entryComponents:[NewConversationDialogComponent],
+ 
   imports: [
     BrowserModule,
     AppRoutingModule,

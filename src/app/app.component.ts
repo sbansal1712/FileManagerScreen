@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(){
      
 const treeConfig: ConfigInterface = {
-  baseURL: 'https://filemanagerserver.herokuapp.com/',
+  baseURL: 'http://filemanagerserver.herokuapp.com/',
   api: {
     listFile: 'api/list',
     uploadFile: 'api/upload',
