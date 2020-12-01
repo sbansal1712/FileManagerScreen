@@ -12,15 +12,15 @@ export class AppComponent {
   constructor(){
      
 const treeConfig: ConfigInterface = {
-  baseURL: 'http://localhost:8080/',
+  baseURL: 'https://filemanagerserver.herokuapp.com/',
   api: {
-    listFile: 'api/file/list',
-    uploadFile: 'api/file/upload',
-    downloadFile: 'api/file/download',
-    deleteFile: 'api/file/remove',
-    createFolder: 'api/file/directory',
-    renameFile: 'api/file/rename',
-    searchFiles: 'api/file/search'
+    listFile: 'api/list',
+    uploadFile: 'api/upload',
+    downloadFile: 'api/download',
+    deleteFile: 'api/remove',
+    createFolder: 'api/directory',
+    renameFile: 'api/rename',
+    searchFiles: 'api/search'
   },
   options: {
     allowFolderDownload: DownloadModeEnum.DOWNLOAD_FILES, //alternatively DOWNLOAD_DISABLED,DOWNLOAD_ALL

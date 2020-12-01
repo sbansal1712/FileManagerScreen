@@ -2,7 +2,7 @@ import { EventEmitter, Injectable, Output } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { switchMap, catchError } from "rxjs/operators";
 import { of, Subject, throwError } from "rxjs";
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: "root",
